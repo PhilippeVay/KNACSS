@@ -22,19 +22,19 @@ code.styling-code-true {
 /* displaying a LESS variable in CSS via pseudo :before */
 .display-var(@key: "@styling-code", @val: @styling-code) {
 	.display-var {
-		margin-left: 2em;
+		font-size: 1.4em;
 		&:before,
 		&:after {
 			display: inline-block;
 			background-color: lightyellow;
 		}
 		&:before {
-			content: @key;
-			padding-right: 1em;
+			content: "LESS variable in KNACSS: " @key;
+			padding-right: 0.5em;
 		}
 		&:after {
 			content: "@{val}";
-			padding-left: 1em;
+			padding-left: 0.5em;
 		}
 	}
 }

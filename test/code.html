@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>KNACSS: Code element displays</title>
+
+	<!-- Compiling on the fly for testing purpose -->
+	<link rel="stylesheet/less" type="text/css" href="knacss-styling-code-false.less">
+	<script src="less.js/less-1.6.1.min.js"></script>
+</head>
+<body>
+	<h1>Code element displays</h1>
+	<h2>Playing with LESS "when" as a compilation option</h2>
+
+	<p class="display-var"> is set to </p>
+
+	<div class="row mt2">
+		<pre class="col w30 pa1"><code>/* This example of code should be redish on lightgray background if KNACSS variable @styling-code is set to true, otherwise black on white */</code></pre>
+
+		<hr>
+
+		<pre class="col w30 pa1"><code class="styling-code-false">/* False ==> unstyled:<br> should be black on white in modern browsers (not tested in IE) */</code></pre>
+
+		<hr>
+
+		<pre class="col w30 pa1"><code class="styling-code-true">/* True ==> styled:<br> should be redish on lightgray background in modern browsers (not tested in IE) */</code></pre>
+	</div>
+
+</body>
+</html>

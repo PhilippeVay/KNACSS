@@ -453,7 +453,7 @@ img.right {
 
 /* ----------------------------- */
 
-/* blocks widths (percentage and pixels) */
+/* blocks widths (percentage, pixels and auto) */
 
 .w10 {
   width: 10%;
@@ -565,6 +565,10 @@ img.right {
 
 .mw1140p {
   max-width: 1140px;
+}
+
+.wauto {
+  width: auto;
 }
 
 .wauto {

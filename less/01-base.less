@@ -142,10 +142,13 @@ kbd {
 	padding: 0 2px;
 	border: 1px solid #999;
 }
+.styling-code()	when (@styling-code = true) {
+	background: rgba(0,0,0,.04);
+	color: #b11;
+}
 code {
 	padding: 2px 4px;
-	background: rgba(0,0,0,.04);
-	color: #b11; 
+	.styling-code();
 }
 mark {
 	padding:2px 4px;

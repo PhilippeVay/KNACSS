@@ -9,7 +9,6 @@ var minifycss = require('gulp-minify-css');
 // var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 
-
 // tâche CSS = compile vers knacss.css et knacss-unminified.css
 gulp.task('css', function () {
   return gulp.src('./sass/knacss.scss')
@@ -32,6 +31,25 @@ gulp.task('grillade', function() {
     .pipe(autoprefixer())
     .pipe(minifycss())
     .pipe(gulp.dest('./css/'));
+});
+
+// Stylelint: https://github.com/olegskl/gulp-stylelint
+gulp.task('lint-css', function lintCssTask() {
+  const gulpStylelint = require('gulp-stylelint');
+  // const myStylelintFormatter = require('my-stylelint-formatter');
+
+  return gulp
+    .src('./css/knacss-unminified.css')
+    .pipe(gulpStylelint({
+      failAfterError: true,
+      reportOutputDir: 'reports/lint',
+      reporters: [
+        {formatter: 'verbose', console: true},
+        // {formatter: 'json', save: 'report.json'},
+        // {formatter: myStylelintFormatter, save: 'my-custom-report.txt'}
+      ],
+      debug: true
+    }));
 });
 
 // Watcher

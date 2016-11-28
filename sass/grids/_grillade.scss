@@ -98,7 +98,7 @@ $iefix: 0.01px;
 }
 // sizing individual children
 @media (min-width: ($tiny + 1)) {
-   @each $flow, $divider in ("full" "1"), ("one-half" "2"), ("one-third" "3"), ("one-quarter" "4"), ("one-fifth" "5"), ("one-sixth" "6"), ("two-thirds" "3 * 2"), ("three-quarters" "4 * 3"), ("five-sixths" "6 * 5"){
+  @each $flow, $divider in ("full" "1"), ("one-half" "2"), ("one-third" "3"), ("one-quarter" "4"), ("one-fifth" "5"), ("one-sixth" "6"), ("two-thirds" "3 * 2"), ("three-quarters" "4 * 3"), ("five-sixths" "6 * 5") {
     .#{$flow} {
       flex: 0 0 auto;
       width: calc(100% / #{$divider} - #{$iefix});
@@ -114,7 +114,7 @@ $iefix: 0.01px;
 // -small-X suffix means "X columns on small screen"
 // example : .grid-4-small-2 will be 1 column (tiny and down) then 2 columns (until small) then 4 columns
 @media (min-width: ($tiny + 1)) and (max-width: $small) {
-   @for $i from 1 through 4{
+  @for $i from 1 through 4 {
     [class*="-small-#{$i}"] {
       & > * {
         width: calc(100% / #{$i} - #{$iefix});

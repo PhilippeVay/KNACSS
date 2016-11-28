@@ -162,12 +162,14 @@ h6,
 }
 
 /* avoid margins on nested elements */
-li p,
-li .#{$kna-namespace}p-like,
-li ul,
-li ol {
-  margin-top: 0;
-  margin-bottom: 0;
+li {
+  p,
+  .#{$kna-namespace}p-like,
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 
 /* max values */

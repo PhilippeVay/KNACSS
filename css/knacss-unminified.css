@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
-* www.KNACSS.com V6.0.2 (27 octobre 2016) @author: Alsacreations, Raphael Goetter
+* www.KNACSS.com V6.0.3 (31 octobre 2016) @author: Alsacreations, Raphael Goetter
 * Licence WTFPL http://www.wtfpl.net/
 */
 /* ----------------------------- */
@@ -906,6 +906,7 @@ input[type="reset"].unstyled {
             flex-direction: row-reverse; }
   .o-media-figure--center {
     -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
         align-self: center; } }
 
 /* Autogrid object */
@@ -1796,7 +1797,6 @@ ul.unstyled {
 .pull {
   margin-right: auto !important; }
 
-/* Grid order */
 .grid-item-first {
   -webkit-box-ordinal-group: 0;
       -ms-flex-order: -1;

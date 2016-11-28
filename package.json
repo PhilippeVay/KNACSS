@@ -30,13 +30,14 @@
   "dependencies": {},
   "devDependencies": {
     "gulp": "latest",
-    "gulp-rename": "latest",
-    "gulp-less": "latest",
-    "gulp-sass": "latest",
-    "gulp-concat": "latest",
-    "gulp-minify-css": "latest",
     "gulp-autoprefixer": "latest",
-    "gulp-sourcemaps": "latest"
+    "gulp-concat": "latest",
+    "gulp-less": "latest",
+    "gulp-minify-css": "latest",
+    "gulp-rename": "latest",
+    "gulp-sass": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-stylelint": "^3.4.0"
   },
   "engines": {}
 }

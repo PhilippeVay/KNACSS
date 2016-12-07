@@ -33,25 +33,6 @@ gulp.task('grillade', function() {
     .pipe(gulp.dest('./css/'));
 });
 
-// Stylelint: https://github.com/olegskl/gulp-stylelint
-gulp.task('lint-css', function lintCssTask() {
-  const gulpStylelint = require('gulp-stylelint');
-  // const myStylelintFormatter = require('my-stylelint-formatter');
-
-  return gulp
-    .src('./css/knacss-unminified.css')
-    .pipe(gulpStylelint({
-      failAfterError: true,
-      reportOutputDir: 'reports/lint',
-      reporters: [
-        {formatter: 'verbose', console: true},
-        // {formatter: 'json', save: 'report.json'},
-        // {formatter: myStylelintFormatter, save: 'my-custom-report.txt'}
-      ],
-      debug: true
-    }));
-});
-
 // Watcher
 gulp.task('watch', function() {
   gulp.watch(['./sass/*.scss'], ['css']);

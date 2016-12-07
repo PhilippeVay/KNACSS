@@ -36,8 +36,7 @@
     "gulp-minify-css": "latest",
     "gulp-rename": "latest",
     "gulp-sass": "latest",
-    "gulp-sourcemaps": "latest",
-    "gulp-stylelint": "^3.4.0"
+    "gulp-sourcemaps": "latest"
   },
   "engines": {}
 }

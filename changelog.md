@@ -1,3 +1,18 @@
+# changelog v6.0.7 (7 décembre 2016)
+- application de `$font-stack-headings` uniquement si différent de `$font-stack-common`
+
+# changelog v6.0.6 (2 décembre 2016)
+- Grillade : redéfinition du périmètre de `-small` : passe de `(min-width: ($tiny + 1)) and (max-width: $small)` à `(min-width: ($tiny + 1)) and (max-width: $medium)` (de 544px à 991px par défaut)
+
+# changelog v6.0.5 (1er décembre 2016)
+- redéfinition des variables de breakpoints, à présent calées sur [celles de Bootstrap](https://v4-alpha.getbootstrap.com/layout/overview/#responsive-breakpoints)
+
+# changelog v6.0.4 (22 novembre 2016)
+- renommage des variables
+
+# changelog v6.0.3 (10 novembre 2016)
+- renommage `grid-item-*` en `item-*` pour éviter [les conflits](https://github.com/alsacreations/KNACSS/issues/222)
+
 # changelog v6.0.2 (27 octobre 2016)
 - optimisation de la grille (de 8ko à 3ko pour la version Sass)
 

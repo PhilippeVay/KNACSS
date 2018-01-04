@@ -1,0 +1,97 @@
+doctype html
+html(lang="en")
+  head
+    title List of tests for KNACSS
+    meta(charset="UTF-8")
+    link(href='../css/knacss.css', rel='stylesheet')
+    style.
+      body {
+        max-width: 1040px;
+        margin: auto;
+      }
+      
+      .toc {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2vw;
+        padding: 0.5em 0 0 0;
+      }
+      
+      .toc li {
+        list-style-type: none;
+        border: 1px solid firebrick;
+      }
+      
+      .toc a {
+        height: 100%;
+        display: flex;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .toc a:after {
+        content: '';
+        display: block;
+        width: 2em;
+      }
+
+      .toc a:focus,
+      .toc a:hover {
+        background-color: #ecc;
+        transition: 0.25s background-color ease-in;
+      }
+      
+      .toc span {
+        display: block;
+      }
+
+      .toc-nb {
+        align-self: flex-start;
+        border: 0 solid firebrick;
+        border-width: 0 1px 1px 0;
+        padding: 0.3em 0.6em;
+      }
+
+      .toc-main {
+        flex: 1 1 0%;
+      }
+      
+      .toc-main span:first-child {
+        margin-bottom: 0.5em;
+        padding-top: 1em;
+        font-size: 1.25em;
+        text-decoration: underline;
+      }
+
+      .toc-main span:last-child {
+        padding-bottom: 1em;
+      }
+  body
+    h1 Lists of tests for KNACSS
+
+    h2 grillade v7
+    ul.toc
+      li
+        a(href='grid-01-mono.html')
+          span.toc-nb 01
+          span.toc-main
+            span monoline
+            span tests <code>.autogrid</code>
+      li
+        a(href='grid-10-simple.html')
+          span.toc-nb 10
+          span.toc-main
+            span simple cases
+            span tests <code>.grid-2</code> to <code>.grid-12</code> with all possible gutters and without one
+      li
+        a(href='grid-20-order.html')
+          span.toc-nb 20
+          span.toc-main
+            span item order
+            span tests <code>.item-first</code> and <code>.item-last</code> in various positions
+      li
+        a(href='grid-30-span.html')
+          span.toc-nb 30
+          span.toc-main
+            span item spanning over many columns or rows
+            span tests <code>.col-N</code> and <code>.row-N</code>

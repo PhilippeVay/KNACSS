@@ -1,0 +1,78 @@
+doctype html
+html(lang="en")
+  head
+    title Items spanning over many columns and/or rows with .grid-6 - Tests for grillade
+    meta(charset="UTF-8")
+    link(href='../css/grillade-grid.css', rel='stylesheet')
+    //- link(href='../css/knacss.css', rel='stylesheet')
+    link(href='css/test.css', rel='stylesheet')
+  body
+    h1 Tests for grillade - Items spanning over many columns and/or rows with .grid-6
+
+    - var current_grid = 6
+    h2#col 1. <code>.grid-6</code>
+    //- Generates a .grid-N grid with possibly another class (gutter) with N items, one of them having a special class
+    mixin grid(id, nb_col, other_class, special_class, special_nb, nb_items)
+      - var i = 1;
+      - var txt = (special_class=='') ? 'no gutter' : '.'+special_class;
+      if (other_class != '')
+        - var other_class = ' '+other_class;
+      div(id=id, class="grid-"+nb_col+other_class)
+        while i <= nb_items
+          //- L'item special_nb a la classe special_class.
+          //- S'il n'y a qu'un item, c'est celui-ci qui aura la classe
+          if (special_nb == i) || ( (special_nb > nb_items) && (i == nb_items) )
+            div(class=special_class) .#{special_class} - item #{i}
+          //- else if (i == nb_items)
+            //- on veut afficher le type de grille (sauf avec 1 item où on n'a pas assez de place) et avec plus d'1 item avoir une longueur inégale de contenu
+            //- div Item #{i} with #{txt}
+          else
+            div Item #{i}
+          - i++
+
+    - var i = 1;
+    while i <= current_grid
+      h3(id='col_'+i) 1er item est #[code .col-#{i}] (grille #[code .grid-#{current_grid}])
+      //- mixin grid(id, nb_col, other_class, special_class, special_nb, nb_items)
+      +grid('col-nogut_'+i+'_1', current_grid, '', 'col-' + i, 1, 8)
+      +grid('col-gut_'+i+'_1', current_grid, 'has-gutter', 'col-' + i, 1, 8)
+      +grid('col-gut_l_'+i+'_1', current_grid, 'has-gutter-l', 'col-' + i, 1, 8)
+      +grid('col-gut_xl_'+i+'_1', current_grid, 'has-gutter-xl', 'col-' + i, 1, 8)
+      - i++
+
+    - var i = 1;
+    while i <= current_grid
+      h3(id='col_'+i) 3e item est #[code .col-#{i}] (grille #[code .grid-#{current_grid}])
+      +grid('col-nogut_'+i+'_3', current_grid, '', 'col-' + i, 3, 8)
+      +grid('col-gut_'+i+'_3', current_grid, 'has-gutter', 'col-' + i, 3, 8)
+      +grid('col-gut_l_'+i+'_3', current_grid, 'has-gutter-l', 'col-' + i, 3, 8)
+      +grid('col-gut_xl_'+i+'_3', current_grid, 'has-gutter-xl', 'col-' + i, 3, 8)
+      - i++
+
+    - var i = 1;
+    while i <= current_grid
+      h3(id='col_'+i) 7e item est #[code .col-#{i}] (grille #[code .grid-#{current_grid}])
+      +grid('col-nogut_'+i+'_7', current_grid, '', 'col-' + i, 7, 8)
+      +grid('col-gut_'+i+'_7', current_grid, 'has-gutter', 'col-' + i, 7, 8)
+      +grid('col-gut_l_'+i+'_7', current_grid, 'has-gutter-l', 'col-' + i, 7, 8)
+      +grid('col-gut_xl_'+i+'_7', current_grid, 'has-gutter-xl', 'col-' + i, 7, 8)
+      - i++
+
+    - var i = 1;
+    while i <= current_grid
+      h3(id='col_'+i) 12e item est #[code .col-#{i}] (grille #[code .grid-#{current_grid}])
+      +grid('col-nogut_'+i+'_12', current_grid, '', 'col-' + i, 12, 12)
+      +grid('col-gut_'+i+'_12', current_grid, 'has-gutter', 'col-' + i, 12, 12)
+      +grid('col-gut_l_'+i+'_12', current_grid, 'has-gutter-l', 'col-' + i, 12, 12)
+      +grid('col-gut_xl_'+i+'_12', current_grid, 'has-gutter-xl', 'col-' + i, 12, 12)
+      - i++
+
+    //- Row de 1 à 6 dans la 5e colonne
+    - var i = 1;
+    while i <= 6
+      h3(id='row_'+i+'_5') 5e item est #[code .row-#{i}] (grille #[code .grid-#{current_grid}])
+      +grid('row-nogut_'+i+'_5', current_grid, '', 'row-' + i, 5, 36)
+      +grid('row-gut_'+i+'_5', current_grid, 'has-gutter', 'row-' + i, 5, 36)
+      +grid('row-gut_l_'+i+'_5', current_grid, 'has-gutter-l', 'row-' + i, 5, 36)
+      +grid('row-gut_xl_'+i+'_5', current_grid, 'has-gutter-xl', 'row-' + i, 5, 36)
+      - i++

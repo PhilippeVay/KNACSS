@@ -1,0 +1,68 @@
+/*
+ * Styles for test pages
+ */
+/* Content: centered column up to a certain width */
+body {
+  max-width: 1040px;
+  margin: auto;
+}
+
+/* Vertical spacing between each case */
+.grid,
+[class*="grid-"] {
+  margin-bottom: 2rem;
+}
+
+.grid > *,
+[class*="grid-"] > * {
+  padding: 1rem;
+  text-align: center;
+  background-color: beige;
+  outline: 1px dotted darkgray;
+  word-wrap: break-word;
+}
+
+[class*="grid-"] > * {
+  outline: 1px dotted darkred;
+}
+
+
+/* Coloring special case items */
+.item-first,
+.item-last {
+  background-color: lightsalmon;
+}
+
+[class*="col-"] {
+  background-color: hotpink;
+}
+[class*="row-"] {
+  background-color: orange;
+}
+
+
+/* Headings */
+h1,
+h2,
+h3 {
+  font-weight: bold;
+}
+
+h2,
+h3 {
+  color: indigo;
+}
+
+h2 {
+  padding-top: 0.5em;
+}
+
+h3 {
+  padding-bottom: 0.5em;
+}
+
+:not(h2) + h3 {
+  border-top: 1px solid indigo;
+  margin-top: 2em;
+  padding-top: 0.5em;
+}

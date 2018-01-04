@@ -1,0 +1,215 @@
+doctype html
+html(lang="en")
+  head
+    title .grid-N and .item-first / .item-last - Tests for grillade
+    meta(charset="UTF-8")
+    link(href='../css/grillade-grid.css', rel='stylesheet')
+    //- link(href='../css/knacss.css', rel='stylesheet')
+    link(href='css/test.css', rel='stylesheet')
+  body
+    h1 Tests for grillade - <code>.grid-N</code> and <code>.item-first|last</code>
+
+    - var max_grid = 12
+    h2#od1 1. <code>.grid-N</code> with 1 item
+    //- Generates a .grid-N with N items
+    mixin grid(id, nb_col, other_class, nb_items, orderType, orderNb)
+      - var i = 1;
+      - var txt = (other_class=='') ? 'no gutter' : '.'+other_class;
+      if (other_class != '')
+        - var other_class = ' '+other_class;
+      div(id=id, class="grid-"+nb_col+other_class)
+        while i <= nb_items
+          //- on veut afficher le type de grille (sauf avec 1 item où on n'a pas assez de place) et avec plus d'1 item avoir une longueur inégale de contenu
+          //- Le 2e item a la classe .item-first ou .item-last. S'il n'y a qu'un item, c'est celui-ci qui aura la classe
+          if (1 == nb_items) || (orderNb == i)
+            - var classOrder = 'item-'+orderType
+            div(class=classOrder) #{orderType} #{i++}
+          else if (i == nb_items)
+            div Item #{i++} with #{txt}
+          else
+            div Item #{i++}
+
+    - var n = 2;
+    while n <= max_grid
+      h3(id='od1_'+n) #[code .grid-#{n}]
+      +grid('od1-nogut' + n, n, '', 1, 'first', 1)
+      +grid('od1first-gut' + n, n, 'has-gutter', 1, 'first', 1)
+      +grid('od1first-gut_l' + n, n, 'has-gutter-l', 1, 'first', 1)
+      +grid('od1first-gut_xl' + n, n, 'has-gutter-xl', 1, 'first', 1)
+      +grid('od1first-nogut' + n, n, '', 1, 'last', 1)
+      +grid('od1last-gut' + n, n, 'has-gutter', 1, 'last', 1)
+      +grid('od1last-gut_l' + n, n, 'has-gutter-l', 1, 'last', 1)
+      +grid('od1last-gut_xl' + n, n, 'has-gutter-xl', 1, 'last', 1)
+      - n++
+
+    
+    h2#odn 2. <code>.grid-N</code> with N items
+    h3#odn_nogut_2 a. <code>.item-first</code> or <code>last</code> on item 2 with no gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('odnfirst-nogut' + n, n, 'grid-'+n, n, 'first', 2)
+      +grid('odnlast-nogut' + n, n, 'grid-'+n, n, 'last', 2)
+      - n++
+
+    h3#odn_nogut_1 b. <code>.item-first</code> or <code>last</code> on first item with no gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('odnfirst-nogut_1' + n, n, 'grid-'+n, n, 'first', 1)
+      +grid('odnlast-nogut_1' + n, n, 'grid-'+n, n, 'last', 1)
+      - n++
+
+    h3#odn_nogut_n c. <code>.item-first</code> or <code>last</code> on last item with no gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('odnfirst-nogut_n' + n, n, 'grid-'+n, n, 'first', n)
+      +grid('odnlast-nogut_n' + n, n, 'grid-'+n, n, 'last', n)
+      - n++
+
+    h3#odn_gut_2 d. <code>.item-first</code> or <code>last</code> on item 2 with gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('odnfirst-gut_2' + n, n, 'grid-'+n+' has-gutter', n, 'first', 2)
+      +grid('odnlast-gut_2' + n, n, 'grid-'+n+' has-gutter', n, 'last', 2)
+      - n++
+    
+    h3#odn_gut_1 e. <code>.item-first</code> or <code>last</code> on first item with gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('odnfirst-gut_1' + n, n, 'grid-'+n+' has-gutter', n, 'first', 1)
+      +grid('odnlast-gut_1' + n, n, 'grid-'+n+' has-gutter', n, 'last', 1)
+      - n++
+      
+    h3#odn_gut_n f. <code>.item-first</code> or <code>last</code> on last item with gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('odnfirst-gut_n' + n, n, 'grid-'+n+' has-gutter', n, 'first', n)
+      +grid('odnlast-gut_n' + n, n, 'grid-'+n+' has-gutter', n, 'last', n)
+      - n++
+    
+    h3#odn_gut_l_1 g. <code>.item-first</code> or <code>last</code> on item 2 with gutter <code>-l</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('odnfirst-gut_l_1' + n, n, 'grid-'+n+' has-gutter-l', n, 'first', 2)
+      +grid('odnlast-gut_l_1' + n, n, 'grid-'+n+' has-gutter-l', n, 'last', 2)
+      - n++
+    
+    h3#odn_gut_l_1 h. <code>.item-first</code> or <code>last</code> on first item with gutter <code>-l</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('odnfirst-gut_l_1' + n, n, 'grid-'+n+' has-gutter-l', n, 'first', 1)
+      +grid('odnlast-gut_l_1' + n, n, 'grid-'+n+' has-gutter-l', n, 'last', 1)
+      - n++
+    
+    h3#odn_gut_l_n i. <code>.item-first</code> or <code>last</code> on first item with gutter <code>-l</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('odnfirst-gut_l_n' + n, n, 'grid-'+n+' has-gutter-l', n, 'first', n)
+      +grid('odnlast-gut_l_n' + n, n, 'grid-'+n+' has-gutter-l', n, 'last', n)
+      - n++
+    
+    h3#odn_gut_xl_2 j. <code>.item-first</code> or <code>last</code> on item 2 with gutter <code>-xl</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('odnfirst-gut_xl' + n, n, 'grid-'+n+' has-gutter-xl', n, 'first', 2)
+      +grid('odnlast-gut_xl' + n, n, 'grid-'+n+' has-gutter-xl', n, 'last', 2)
+      - n++
+
+    h3#odn_gut_xl_1 k. <code>.item-first</code> or <code>last</code> on first item with gutter <code>-xl</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('odnfirst-gut_xl_1' + n, n, 'grid-'+n+' has-gutter-xl', n, 'first', 1)
+      +grid('odnlast-gut_xl_1' + n, n, 'grid-'+n+' has-gutter-xl', n, 'last', 1)
+      - n++
+  
+    h3#odn_gut_xl_n l. <code>.item-first</code> or <code>last</code> on last item with gutter <code>-xl</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('odnfirst-gut_xl_n' + n, n, 'grid-'+n+' has-gutter-xl', n, 'first', n)
+      +grid('odnlast-gut_xl_n' + n, n, 'grid-'+n+' has-gutter-xl', n, 'last', n)
+      - n++
+
+    // 3
+    h2#odn1 2. <code>.grid-N</code> with N+1 items
+    h3#odn1_nogut_2 a. <code>.item-first</code> or <code>last</code> on item 2 with no gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('odn1first-nogut_2' + n, n, 'grid-'+n, n+1, 'first', 2)
+      +grid('odn1last-nogut_2' + n, n, 'grid-'+n, n+1, 'last', 2)
+      - n++
+
+    h3#odn1_nogut_1 b. <code>.item-first</code> or <code>last</code> on first item with no gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('odn1first-nogut_1' + n, n, 'grid-'+n, n+1, 'first', 1)
+      +grid('odn1last-nogut_1' + n, n, 'grid-'+n, n+1, 'last', 1)
+      - n++
+
+    h3#odn1_nogut_n c. <code>.item-first</code> or <code>last</code> on last item with no gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('odn1first-nogut_n' + n, n, 'grid-'+n, n+1, 'first', n)
+      +grid('odn1last-nogut_n' + n, n, 'grid-'+n, n+1, 'last', n)
+      - n++
+
+    h3#odn1_gut_2 d. <code>.item-first</code> or <code>last</code> on item 2 with gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('odn1first-gut_2' + n, n, 'grid-'+n+' has-gutter', n+1, 'first', 2)
+      +grid('odn1last-gut_2' + n, n, 'grid-'+n+' has-gutter', n+1, 'last', 2)
+      - n++
+    
+    h3#odn1_gut_1 e. <code>.item-first</code> or <code>last</code> on first item with gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('odn1first-gut_1' + n, n, 'grid-'+n+' has-gutter', n+1, 'first', 1)
+      +grid('odn1last-gut_1' + n, n, 'grid-'+n+' has-gutter', n+1, 'last', 1)
+      - n++
+      
+    h3#odn1_gut_n f. <code>.item-first</code> or <code>last</code> on last item with gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('odn1first-gut_n' + n, n, 'grid-'+n+' has-gutter', n+1, 'first', n)
+      +grid('odn1last-gut_n' + n, n, 'grid-'+n+' has-gutter', n+1, 'last', n)
+      - n++
+    
+    h3#odn1_gut_l_2 g. <code>.item-first</code> or <code>last</code> on item 2 with gutter <code>-l</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('odn1first-gut_l_2' + n, n, 'grid-'+n+' has-gutter-l', n+1, 'first', 2)
+      +grid('odn1last-gut_l_2' + n, n, 'grid-'+n+' has-gutter-l', n+1, 'last', 2)
+      - n++
+    
+    h3#odn1_gut_l_1 h. <code>.item-first</code> or <code>last</code> on first item with gutter <code>-l</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('odn1first-gut_l_1' + n, n, 'grid-'+n+' has-gutter-l', n+1, 'first', 1)
+      +grid('odn1last-gut_l_1' + n, n, 'grid-'+n+' has-gutter-l', n+1, 'last', 1)
+      - n++
+      
+    h3#odn1_gut_l_n i. <code>.item-first</code> or <code>last</code> on last item with gutter <code>-l</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('odn1first-gut_l_n' + n, n, 'grid-'+n+' has-gutter-l', n+1, 'first', n)
+      +grid('odn1last-gut_l_n' + n, n, 'grid-'+n+' has-gutter-l', n+1, 'last', n)
+      - n++
+
+    h3#odn1_gut_xl_2 j. With gutter <code>-xl</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('odn1first-gut_xl_2' + n, n, 'grid-'+n+' has-gutter-xl', n+1, 'first', 2)
+      +grid('odn1last-gut_xl_2' + n, n, 'grid-'+n+' has-gutter-xl', n+1, 'last', 2)
+      - n++
+
+    h3#odn1_gut_xl_1 k. With gutter <code>-xl</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('odn1first-gut_xl_1' + n, n, 'grid-'+n+' has-gutter-xl', n+1, 'first', 1)
+      +grid('odn1last-gut_xl_1' + n, n, 'grid-'+n+' has-gutter-xl', n+1, 'last', 1)
+      - n++
+
+    h3#odn1_gut_xl_n l. With gutter <code>-xl</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('odn1first-gut_xl_n' + n, n, 'grid-'+n+' has-gutter-xl', n+1, 'first', n)
+      +grid('odn1last-gut_xl_n' + n, n, 'grid-'+n+' has-gutter-xl', n+1, 'last', n)
+      - n++

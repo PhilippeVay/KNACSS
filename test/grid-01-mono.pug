@@ -1,0 +1,106 @@
+doctype html
+html(lang="en")
+  head
+    title .grid - Tests for grillade with jade/pug
+    meta(charset="UTF-8")
+    //- link(href='../css/grillade-grid.css', rel='stylesheet')
+    link(href='../css/knacss.css', rel='stylesheet')
+    link(href='css/test.css', rel='stylesheet')
+  body
+    h1 Tests for grillade - <code>.grid</code> with jade/pug
+
+    - var max_items = 12
+    h2#mono 1. Mono-line (1 to #{max_items} equal width items)
+    //- Generates a grid with nb_items, custom classes
+    mixin grid(id, nb_items, other_class)
+      - var i = 1;
+      div(id=id, class=other_class)
+        while i < nb_items
+          div Item #{i++}
+        if (1 == nb_items)
+          div Item #{nb_items}
+        else
+          //- on veut une longueur inégale de contenu
+          div Item #{nb_items} lorem schnapsum dolor sit amet
+
+    h3#mono_nogut a. No gutter
+    - var m = 1;
+    while m <= max_items
+      +grid('mono-nogut' + m, m++, 'grid')
+
+    h3#mono_gut b. With gutter
+    - var m = 1;
+    while m <= max_items
+      +grid('mono_gut' + m, m++, 'grid has-gutter')
+
+    h3#mono_gut_l c. With gutter <code>-l</code>
+    - var m = 1;
+    while m <= max_items
+      +grid('mono_gut_l' + m, m++, 'grid has-gutter-l')
+
+    h3#mono_gut_xl d. With gutter <code>-xl</code>
+    - var m = 1;
+    while m <= max_items
+      +grid('mono_gut_xl' + m, m++, 'grid has-gutter-xl')
+
+    h2 2. Mono-line and item order
+    div.grid#mono_order_1
+      div Item 1
+      .item-first Item 2 lorem schnapsum dolor sit amet
+    div.grid#mono_order_2
+      .item-last Item 1
+      div Item 2 lorem schnapsum dolor sit amet
+    div.grid#mono_order_3
+      div Item 1
+      div Item 2
+      .item-first Item 3
+      div Item 4 lorem schnapsum dolor sit amet
+    div.grid#mono_order_4
+      div Item 1
+      div Item 2
+      div Item 3
+      .item-first Item 4 lorem schnapsum dolor sit amet
+    div.grid#mono_order_5
+      .item-last Item 1
+      div Item 2
+      div Item 3
+      div Item 4 lorem schnapsum dolor sit amet
+    div.grid#mono_order_6
+      div Item 1
+      div Item 2
+      .item-last Item 3
+      div Item 4 lorem schnapsum dolor sit amet
+    div.grid#mono_order_7
+      div Item 1
+      .item-last Item 2
+      div Item 3
+      div Item 4 lorem schnapsum dolor sit amet
+      .item-first Item 5
+      div Item 6
+    div.grid#mono_order_8
+      .item-first Item 1 lorem schnapsum dolor sit amet
+    div.grid#mono_order_9
+      .item-last Item 1 lorem schnapsum dolor sit amet
+
+    h2#mono_gutorder 3. Mono-line with both gutter and item order
+    div.grid.has-gutter-l#mono_gutorder_1
+      .item-first Item 1
+    div.grid.has-gutter-xl#mono_gutorder_2
+      .item-last Item 1
+    div.grid.has-gutter#mono_gutorder_3
+      div Item 1
+      div Item 2
+      .item-first Item 3
+      div Item 4 lorem schnapsum dolor sit amet
+    div.grid.has-gutter#mono_gutorder_4
+      .item-last Item 1
+      div Item 2
+      div Item 3
+      div Item 4 lorem schnapsum dolor sit amet
+    div.grid.has-gutter#mono_gutorder_5
+      div Item 1
+      .item-last Item 2
+      div Item 3
+      div Item 4 lorem schnapsum dolor sit amet
+      .item-first Item 5
+      div Item 6

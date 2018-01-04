@@ -1,0 +1,87 @@
+doctype html
+html(lang="en")
+  head
+    title .grid-N - Tests for grillade
+    meta(charset="UTF-8")
+    link(href='../css/grillade-grid.css', rel='stylesheet')
+    //- link(href='../css/knacss.css', rel='stylesheet')
+    link(href='css/test.css', rel='stylesheet')
+  body
+    h1 Tests for grillade - <code>.grid-N</code>
+
+    - var max_grid = 12
+    h2#g1 1. <code>.grid-N</code> with 1 item
+    //- Generates a .grid-N with 1 item
+    mixin grid(id, nb_col, other_class, nb_items)
+      - var i = 1;
+      - var txt = (other_class=='') ? 'no gutter' : '.'+other_class;
+      if (other_class != '')
+        - var other_class = ' '+other_class;
+      div(id=id, class="grid-"+nb_col+other_class)
+        while i <= nb_items
+          //- on veut afficher le type de grille et avec plus d'1 item avoir une longueur inégale de contenu
+          if (i == nb_items)
+            div Item #{i++} with #{txt}
+          else
+            div Item #{i++}
+
+    - var n = 2;
+    while n <= max_grid
+      h3(id='g1_'+n) #[code .grid-#{n}]
+      +grid('g1-nogut' + n, n, '', 1)
+      +grid('g1-gut' + n, n, 'has-gutter', 1)
+      +grid('g1-gut_l' + n, n, 'has-gutter-l', 1)
+      +grid('g1-gut_xl' + n, n, 'has-gutter-xl', 1)
+      - n++
+
+    
+    h2#gn 2. <code>.grid-N</code> with N items
+    h3#gn_nogut a. No gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('gn-nogut' + n, n, 'grid-'+n, n)
+      - n++
+
+    h3#gn_gut b. With gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('gn-gut' + n, n, 'grid-'+n+' has-gutter', n)
+      - n++
+    
+    h3#gn_gut_l c. With gutter <code>-l</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('gn-gut_l' + n, n, 'grid-'+n+' has-gutter-l', n)
+      - n++
+    
+    h3#gn_gut_xl d. With gutter <code>-xl</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('gn-gut_xl' + n, n, 'grid-'+n+' has-gutter-xl', n)
+      - n++
+
+    // 3
+    h2#gn1 2. <code>.grid-N</code> with N+1 items
+    h3#gn1_nogut a. No gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('gn1-nogut' + n, n, 'grid-'+n, n+1)
+      - n++
+
+    h3#gn1_gut b. With gutter
+    - var n = 2;
+    while n <= max_grid
+      +grid('gn1-gut' + n, n, 'grid-'+n+' has-gutter', n+1)
+      - n++
+    
+    h3#gn1_gut_l c. With gutter <code>-l</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('gn1-gut_l' + n, n, 'grid-'+n+' has-gutter-l', n+1)
+      - n++
+    
+    h3#gn1_gut_xl d. With gutter <code>-xl</code>
+    - var n = 2;
+    while n <= max_grid
+      +grid('gn1-gut_xl' + n, n, 'grid-'+n+' has-gutter-xl', n+1)
+      - n++

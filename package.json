@@ -29,11 +29,15 @@
   "dependencies": {},
   "devDependencies": {
     "gulp": "latest",
-    "gulp-rename": "latest",
-    "gulp-sass": "latest",
-    "gulp-concat": "latest",
+    "gulp-autoprefixer": "latest",
     "gulp-clean-css": "latest",
-    "gulp-autoprefixer": "latest"
+    "gulp-concat": "latest",
+    "gulp-pug": "3.3.x",
+    "gulp-rename": "latest",
+    "gulp-sass": "latest"
+  },
+  "scripts": {
+    "test": "gulp test"
   },
   "engines": {}
 }

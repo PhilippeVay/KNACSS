@@ -1,0 +1,191 @@
+{
+  "id": "grillade3",
+  "viewports": [
+    {
+      "name": "respond-tiny",
+      "viewport": {
+        "width": 360,
+        "height": 480
+      }
+    },
+    {
+      "name": "respond-small",
+      "viewport": {
+        "width": 480,
+        "height": 640
+      }
+    },
+    {
+      "name": "respond-medium",
+      "viewport": {
+        "width": 640,
+        "height": 480
+      }
+    },
+    {
+      "name": "respond-large",
+      "viewport": {
+        "width": 991,
+        "height": 768
+      }
+    },
+    {
+      "name": "respond-large-up",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      }
+    },
+    {
+      "name": "respond-extra-large-up",
+      "viewport": {
+        "width": 1350,
+        "height": 1024
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "label": "span",
+      "url": "http://localhost:6768/test/grid-30-span.html",
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "selectors": [
+        "#col-nogut_1_1",
+        "#col-gut_1_1",
+        "#col-gut_l_1_1",
+        "#col-gut_xl_1_1",
+        "#col-nogut_2_1",
+        "#col-gut_2_1",
+        "#col-gut_l_2_1",
+        "#col-gut_xl_2_1",
+        "#col-nogut_3_1",
+        "#col-gut_3_1",
+        "#col-gut_l_3_1",
+        "#col-gut_xl_3_1",
+        "#col-nogut_4_1",
+        "#col-gut_4_1",
+        "#col-gut_l_4_1",
+        "#col-gut_xl_4_1",
+        "#col-nogut_5_1",
+        "#col-gut_5_1",
+        "#col-gut_l_5_1",
+        "#col-gut_xl_5_1",
+        "#col-nogut_6_1",
+        "#col-gut_6_1",
+        "#col-gut_l_6_1",
+        "#col-gut_xl_6_1",
+        "#col-nogut_1_3",
+        "#col-gut_1_3",
+        "#col-gut_l_1_3",
+        "#col-gut_xl_1_3",
+        "#col-nogut_2_3",
+        "#col-gut_2_3",
+        "#col-gut_l_2_3",
+        "#col-gut_xl_2_3",
+        "#col-nogut_3_3",
+        "#col-gut_3_3",
+        "#col-gut_l_3_3",
+        "#col-gut_xl_3_3",
+        "#col-nogut_4_3",
+        "#col-gut_4_3",
+        "#col-gut_l_4_3",
+        "#col-gut_xl_4_3",
+        "#col-nogut_5_3",
+        "#col-gut_5_3",
+        "#col-gut_l_5_3",
+        "#col-gut_xl_5_3",
+        "#col-nogut_6_3",
+        "#col-gut_6_3",
+        "#col-gut_l_6_3",
+        "#col-gut_xl_6_3",
+        "#col-nogut_1_7",
+        "#col-gut_1_7",
+        "#col-gut_l_1_7",
+        "#col-gut_xl_1_7",
+        "#col-nogut_2_7",
+        "#col-gut_2_7",
+        "#col-gut_l_2_7",
+        "#col-gut_xl_2_7",
+        "#col-nogut_3_7",
+        "#col-gut_3_7",
+        "#col-gut_l_3_7",
+        "#col-gut_xl_3_7",
+        "#col-nogut_4_7",
+        "#col-gut_4_7",
+        "#col-gut_l_4_7",
+        "#col-gut_xl_4_7",
+        "#col-nogut_5_7",
+        "#col-gut_5_7",
+        "#col-gut_l_5_7",
+        "#col-gut_xl_5_7",
+        "#col-nogut_6_7",
+        "#col-gut_6_7",
+        "#col-gut_l_6_7",
+        "#col-gut_xl_6_7",
+        "#col-nogut_1_12",
+        "#col-gut_1_12",
+        "#col-gut_l_1_12",
+        "#col-gut_xl_1_12",
+        "#col-nogut_2_12",
+        "#col-gut_2_12",
+        "#col-gut_l_2_12",
+        "#col-gut_xl_2_12",
+        "#col-nogut_3_12",
+        "#col-gut_3_12",
+        "#col-gut_l_3_12",
+        "#col-gut_xl_3_12",
+        "#col-nogut_4_12",
+        "#col-gut_4_12",
+        "#col-gut_l_4_12",
+        "#col-gut_xl_4_12",
+        "#col-nogut_5_12",
+        "#col-gut_5_12",
+        "#col-gut_l_5_12",
+        "#col-gut_xl_5_12",
+        "#col-nogut_6_12",
+        "#col-gut_6_12",
+        "#col-gut_l_6_12",
+        "#col-gut_xl_6_12",
+        "#row-nogut_1_5",
+        "#row-gut_1_5",
+        "#row-gut_l_1_5",
+        "#row-gut_xl_1_5",
+        "#row-nogut_2_5",
+        "#row-gut_2_5",
+        "#row-gut_l_2_5",
+        "#row-gut_xl_2_5",
+        "#row-nogut_3_5",
+        "#row-gut_3_5",
+        "#row-gut_l_3_5",
+        "#row-gut_xl_3_5",
+        "#row-nogut_4_5",
+        "#row-gut_4_5",
+        "#row-gut_l_4_5",
+        "#row-gut_xl_4_5",
+        "#row-nogut_5_5",
+        "#row-gut_5_5",
+        "#row-gut_l_5_5",
+        "#row-gut_xl_5_5",
+        "#row-nogut_6_5",
+        "#row-gut_6_5",
+        "#row-gut_l_6_5",
+        "#row-gut_xl_6_5"
+      ],
+      "readyEvent": null,
+      "delay": 1000,
+      "misMatchThreshold" : 0.1
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "bitmaps_reference",
+    "bitmaps_test": "bitmaps_test",
+    "casper_scripts": "casper_scripts",
+    "html_report": "html_report",
+    "ci_report": "ci_report"
+  },
+  "asyncCaptureLimit": 2,
+  "engine": "chromy",
+  "report": ["browser"],
+  "debug": false
+}

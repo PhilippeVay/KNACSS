@@ -28,6 +28,8 @@
   "license": "WTFPL",
   "dependencies": {},
   "devDependencies": {
+    "backstopjs": "3.0.x",
+    "browser-sync": "^2.23.2",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-clean-css": "latest",
